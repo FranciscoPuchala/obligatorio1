@@ -91,17 +91,20 @@
     <button>Agregar venta</button>
     <h4>Datos de la venta a agregar</h4>
     <h5>Venta</h5>
-    <p>Nro: 3 Articulo <select name="menu" id="menu"> 
-        <option value="opcion1">A001</option>
-        <option value="opcion2">A002</option>
-        <option value="opcion3">A003</option>
-     </select> 
-    Influencer <select name="menu2" id="menu2">
-        <option value="opcion1">Ana perez</option>
-        <option value="opcion2">Juan Gomez</option>
-        <option value="opcion3">Lucia Martinez</option>
-        
-     </select>
+    <label>Nro: 3 Articulo 
+        <select name="menu" id="menu"> 
+            <option value="opcion1">A001</option>
+            <option value="opcion2">A002</option>
+            <option value="opcion3">A003</option>
+        </select> 
+    </label>
+    <label>Influencer 
+        <select name="menu2" id="menu2">
+            <option value="opcion1">Ana perez</option>
+            <option value="opcion2">Juan Gomez</option>
+            <option value="opcion3">Lucia Martinez</option>   
+        </select>
+    </label>
         <label for="cantidad">Cantidad </label><input type="text"id="cantidad">
     Medio <select name="menu3" id="menu3">
         <option value="opcion1">1-Instagram</option>
@@ -113,16 +116,15 @@
     </select>
     <button>Cancelar</button>
     <button>Agregar</button>
-    </p>
     <h4>Tabla de ventas (ordenada por numero de venta)</h4>
     <table>
         <tr>
-            <td><b>Nro Venta</b></td>
-            <td><b>Codido de Articulo</b></td>
-            <td><b>Nombre de Influencer</b></td>
-            <td><b>Cantidad</b></td>
-            <td><b>Medio</b></td>
-            <td><b>Accion</b></td>
+            <th>Nro Venta</th>
+            <th>Codido de Articulo</th>
+            <th>Nombre de Influencer</th>
+            <th>Cantidad</th>
+            <th>Medio</th>
+            <th>Accion</th>
         </tr>
         <tr>
             <td>1</td>
@@ -137,7 +139,7 @@
             <td>A002</td>
             <td>Juan Gomez</td>
             <td>1</td>
-            <tD>2 - Youtube</tD>
+            <td>2 - Youtube</td>
             <td>❌</td>
         </tr>
 
