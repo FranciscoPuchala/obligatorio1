@@ -4,54 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obligatorio1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Sistema de Gestion Puchala-Lagorio</h1>
-    <h2>Manejo de influencers</h2>
-    <h3>Alta de influencers</h3>
-    <button>Agregar influencer</button>
-    <h3>Datos del influencer a agregar</h3>
-    <label>Nombre <input type="text"></label>
-    <label>Mail <input type="text"></label>
-    <label>% Comisión <input type="text"></label>
-    <button>Cancelar</button>
-    <button>Agregar</button>
-    <h3>Tabla de influencers</h3>
-    <table>
-        <tr>
-            <th><button>Nombre⬆️⬇️</button></th>
-            <th>Email</th>
-            <th>% Comisión</th>
-            <th>Total a cobrar</th>
-            <th>Etiquetas</th>
-            <th>Detalle</th>
-        </tr>
-        <tr>
-            <td>Ana Perez</td>
-            <td>ana.perez@gmail.com</td>
-            <td>20%</td>
-            <td>$ 600</td>
-            <td>🔥🟢</td>
-            <td><button>Ventas</button></td>
-        </tr>
-        <tr>
-            <td>Juan Gomez</td>
-            <td>juan.gomez@gmail.com</td>
-            <td>10%</td>
-            <td>$ 30</td>
-            <td></td>
-            <td><button>Ventas</button></td>
-        </tr>
-        <tr>
-            <td>Lucia Martinez</td>
-            <td>lucia.martinez@gmail.com</td>
-            <td>95%</td>
-            <td>$ 0</td>
-            <td>🧊</td>
-            <td><button>Ventas</button></td>
-        </tr>
-    </table>
-    <p>Informacion: 🔥 Top comision (cobra mas $) 🧊 Cero ventas 🟢 venta mas cara (mayor monto en una sola venta)</p>
+    <h1 id="h1">Sistema de Gestion Puchala-Lagorio</h1>
+    <div class="div1">
+        <h2>Manejo de influencers</h2>
+        <div class="div2">
+            <h3>Alta de influencer</h3>
+            <button class="boton1">Agregar influencer</button>
+        </div>
+        <div class="div2">
+            <h3>Datos del influencer a agregar</h3>
+            <h3>Influencer</h3>
+            <label>Nombre<input type="text"></label>
+            <label>Mail<input type="text"></label>
+            <label>% Comisión<input type="text"></label>
+            <button class="boton1">Cancelar</button>
+            <button class="boton1">Agregar</button>
+        </div>
+        <div class="div2">
+            <h3>Tabla de influencers</h3>
+            <table>
+                <tr>
+                    <th><button>Nombre⬆︎⬇︎</button></th>
+                    <th>Email</th>
+                    <th>% Comisión</th>
+                    <th>Total a cobrar</th>
+                    <th>Etiquetas</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td>Ana Perez</td>
+                    <td>ana.perez@gmail.com</td>
+                    <td>20%</td>
+                    <td>$ 600</td>
+                    <td>🔥🟢</td>
+                    <td><button>Ventas</button></td>
+                </tr>
+                <tr>
+                    <td>Juan Gomez</td>
+                    <td>juan.gomez@gmail.com</td>
+                    <td>10%</td>
+                    <td>$ 30</td>
+                    <td></td>
+                    <td><button>Ventas</button></td>
+                </tr>
+                <tr>
+                    <td>Lucia Martinez</td>
+                    <td>lucia.martinez@gmail.com</td>
+                    <td>95%</td>
+                    <td>$ 0</td>
+                    <td>🧊</td>
+                    <td><button>Ventas</button></td>
+                </tr>
+            </table>
+            <p>Informacion: 🔥 Top comision (cobra mas $) 🧊 Cero ventas 🟢 venta mas cara (mayor monto en una sola venta)</p>
+        </div>
+        
+    </div>
     <h3>Manejo de Articulos</h3>
     <h4>Alta de Articulo</h4>
     <button>Agregar articulo</button>
@@ -105,7 +118,7 @@
             <option value="opcion3">Lucia Martinez</option>   
         </select>
     </label>
-    <label for="cantidad">Cantidad<input type="text"id="cantidad">Medio</label>
+    <label>Cantidad<input type="text"id="cantidad">Medio</label>
     <select name="menu3" id="menu3">
         <option value="opcion1">1-Instagram</option>
         <option value="opcion2">2-YouTube</option>
