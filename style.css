@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: grey;
+    margin-left: 3.5px;
     
 }
 h1{
@@ -8,8 +9,9 @@ h1{
 }
 h2{
     padding: 14px;
-    margin-left: 50px;
-    margin-right: 250px; 
+    margin: 30px;
+    margin-left: 8px;
+    margin-right: 220px;
 }
 table {
     border-collapse: collapse;
@@ -34,9 +36,11 @@ th, td {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
+    padding-left: 0px;
     margin: 20px;
     margin-left: 0px;
     margin-right: 50px;
+    padding-bottom: 0px;
 }
 
 .div2{

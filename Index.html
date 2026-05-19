@@ -29,7 +29,7 @@
             <h3>Tabla de influencers</h3>
             <table>
                 <tr>
-                    <th><button>Nombre⬆︎⬇︎</button></th>
+                    <th><button class="boton1">Nombre⬆︎⬇︎</button></th>
                     <th>Email</th>
                     <th>% Comisión</th>
                     <th>Total a cobrar</th>
@@ -42,7 +42,7 @@
                     <td>20%</td>
                     <td>$ 600</td>
                     <td>🔥🟢</td>
-                    <td><button>Ventas</button></td>
+                    <td><button class="boton1">Ventas</button></td>
                 </tr>
                 <tr>
                     <td>Juan Gomez</td>
@@ -50,7 +50,7 @@
                     <td>10%</td>
                     <td>$ 30</td>
                     <td></td>
-                    <td><button>Ventas</button></td>
+                    <td><button class="boton1">Ventas</button></td>
                 </tr>
                 <tr>
                     <td>Lucia Martinez</td>
@@ -58,105 +58,119 @@
                     <td>95%</td>
                     <td>$ 0</td>
                     <td>🧊</td>
-                    <td><button>Ventas</button></td>
+                    <td><button class="boton1">Ventas</button></td>
                 </tr>
             </table>
             <p>Informacion: 🔥 Top comision (cobra mas $) 🧊 Cero ventas 🟢 venta mas cara (mayor monto en una sola venta)</p>
         </div>
         
     </div>
-    <h3>Manejo de Articulos</h3>
-    <h4>Alta de Articulo</h4>
-    <button>Agregar articulo</button>
-    <h4>Datos del articulo a agregar</h4>
-    <h5>Articulo</h5>
-    <label>Codigo <input type="text"></label>
-    <label>Descripcion <input type="text"></label>
-    <label>Precio <input type="text"></label>
-    <button>Cancelar</button>
-    <button>Agregar</button>
-    <h4>Tabla de articulos </h4>
-    <table>
-        <tr>
-            <td><BUtton>Codigo ⬆️⬇️</BUtton></td>
-            <td><b>Descripcion</b></td>
-            <td><b>Precio</b></td>
-        </tr>
-        <tr>
-            <td>A001⭐</td>
-            <td>Remera de algodon basica</td>
-            <td>$1000</td>
-        </tr>
-        <tr>
-            <td>A002</td>
-            <td>Zapatillas deportivas</td>
-            <td>$300</td>
-        </tr>
-        <tr>
-            <td>A003</td>
-            <td>Gorra ajustable</td>
-            <td>$500</td>
-        </tr>
-    </table>
-    <p>Informacion: ⭐ Articulo mas vendido (mayor cantidad de unidades vendidas) </p>
-    <h3>Ventas</h3>
-    <h4>Alta de ventas </h4>
-    <button>Agregar venta</button>
-    <h4>Datos de la venta a agregar</h4>
-    <h5>Venta</h5>
-    <label>Nro: 3 Articulo 
-        <select name="menu" id="menu"> 
-            <option value="opcion1">A001</option>
-            <option value="opcion2">A002</option>
-            <option value="opcion3">A003</option>
-        </select> 
-    </label>
-    <label>Influencer 
-        <select name="menu2" id="menu2">
-            <option value="opcion1">Ana perez</option>
-            <option value="opcion2">Juan Gomez</option>
-            <option value="opcion3">Lucia Martinez</option>   
-        </select>
-    </label>
-    <label>Cantidad<input type="text"id="cantidad">Medio</label>
-    <select name="menu3" id="menu3">
-        <option value="opcion1">1-Instagram</option>
-        <option value="opcion2">2-YouTube</option>
-        <option value="opcion3">3-X</option>
-        <option value="opcion4">4-TikTok</option>
-        <option value="opcion5">5-Facebook</option>
-        <option value="opcion6">6-Otras</option>
-    </select>
-    <button>Cancelar</button>
-    <button>Agregar</button>
-    <h4>Tabla de ventas (ordenada por numero de venta)</h4>
-    <table>
-        <tr>
-            <th>Nro Venta</th>
-            <th>Codido de Articulo</th>
-            <th>Nombre de Influencer</th>
-            <th>Cantidad</th>
-            <th>Medio</th>
-            <th>Accion</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>A001</td>
-            <td>Ana Perez</td>
-            <td>3</td>
-            <td>1 - Instagram</td>
-            <td>❌</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>A002</td>
-            <td>Juan Gomez</td>
-            <td>1</td>
-            <td>2 - Youtube</td>
-            <td>❌</td>
-        </tr>
-
-
-    </table>
+    <div class="div1">
+        <h2>Manejo de Articulos</h2>
+        <div class="div2">
+            <h3>Alta de Articulo</h3>
+            <button class="boton1">Agregar articulo</button>
+        </div>
+        <div class="div2">
+            <h3>Datos del articulo a agregar</h3>
+            <h3>Articulo</h3>
+            <label>Codigo <input type="text"></label>
+            <label>Descripcion <input type="text"></label>
+            <label>Precio <input type="text"></label>
+            <button class="boton1">Cancelar</button>
+            <button class="boton1">Agregar</button>
+        </div>
+        <div class="div2">
+            <h3>Tabla de articulos</h3>
+            <table>
+                <tr>
+                    <th><button class="boton1">Codigo ⬆︎⬇︎</button></th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                </tr>
+                <tr>
+                    <td>A001⭐</td>
+                    <td>Remera de algodon basica</td>
+                    <td>$1000</td>
+                </tr>
+                <tr>
+                    <td>A002</td>
+                    <td>Zapatillas deportivas</td>
+                    <td>$300</td>
+                </tr>
+                <tr>
+                    <td>A003</td>
+                    <td>Gorra ajustable</td>
+                    <td>$500</td>
+                </tr>
+            </table>
+            <p>Informacion: ⭐ Articulo mas vendido (mayor cantidad de unidades vendidas)</p>
+        </div>
+    </div>
+    <div class="div1">
+        <h2>Ventas</h2>
+        <div class="div2">
+            <h3>Alta de ventas</h3>
+            <button class="boton1">Agregar venta</button>
+        </div>
+        <div class="div2">
+            <h3>Datos de la venta a agregar</h3>
+            <h3>Venta</h3>
+            <label>Nro: 3 Articulo
+                <select name="menu" id="menu">
+                    <option value="opcion1">A001</option>
+                    <option value="opcion2">A002</option>
+                    <option value="opcion3">A003</option>
+                </select>
+            </label>
+            <label>Influencer
+                <select name="menu2" id="menu2">
+                    <option value="opcion1">Ana perez</option>
+                    <option value="opcion2">Juan Gomez</option>
+                    <option value="opcion3">Lucia Martinez</option>
+                </select>
+            </label>
+            <label>Cantidad<input type="text" id="cantidad"> Medio</label>
+            <select name="menu3" id="menu3">
+                <option value="opcion1">1-Instagram</option>
+                <option value="opcion2">2-YouTube</option>
+                <option value="opcion3">3-X</option>
+                <option value="opcion4">4-TikTok</option>
+                <option value="opcion5">5-Facebook</option>
+                <option value="opcion6">6-Otras</option>
+            </select>
+            <button class="boton1">Cancelar</button>
+            <button class="boton1">Agregar</button>
+        </div>
+        <div class="div2">
+            <h3>Tabla de ventas (ordenada por numero de venta)</h3>
+            <table>
+                <tr>
+                    <th>Nro Venta</th>
+                    <th>Codigo de Articulo</th>
+                    <th>Nombre de Influencer</th>
+                    <th>Cantidad</th>
+                    <th>Medio</th>
+                    <th>Accion</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>A001</td>
+                    <td>Ana Perez</td>
+                    <td>3</td>
+                    <td>1 - Instagram</td>
+                    <td>❌</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>A002</td>
+                    <td>Juan Gomez</td>
+                    <td>1</td>
+                    <td>2 - Youtube</td>
+                    <td>❌</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
