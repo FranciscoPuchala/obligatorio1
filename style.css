@@ -41,7 +41,7 @@ th, td {
     cursor: pointer;
 }
 
-.div1 {
+section {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -52,11 +52,21 @@ th, td {
     padding-bottom: 0px;
 }
 
-.div2{
+article {
     background-color: rgb(230, 230, 230);
     border-radius: 10px;
     padding: 14px;
     margin: 30px;
     margin-left: 20px;
     margin-right: 220px;
+}
+
+footer {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    margin-left: 0px;
+    margin-right: 50px;
+    text-align: center;
 }
