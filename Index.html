@@ -20,12 +20,14 @@
         </article>
         <article>
             <h3>Datos del influencer a agregar</h3>
-            <h3>Influencer</h3>
-            <label>Nombre<input type="text"></label>
-            <label>Mail<input type="text"></label>
-            <label>% Comisión<input type="text"></label>
-            <button class="boton1">Cancelar</button>
-            <button class="boton1">Agregar</button>
+            <form>
+                <h3>Influencer</h3>
+                <label>Nombre<input type="text" required></label>
+                <label>Mail<input type="text" required></label>
+                <label>% Comisión<input type="text" required></label>
+                <button type="button" class="boton1">Cancelar</button>
+                <button type="button" class="boton1">Agregar</button>
+            </form>
         </article>
         <article>
             <h3>Tabla de influencers</h3>
@@ -75,12 +77,14 @@
         </article>
         <article>
             <h3>Datos del articulo a agregar</h3>
-            <h3>Articulo</h3>
-            <label>Codigo <input type="text"></label>
-            <label>Descripcion <input type="text"></label>
-            <label>Precio <input type="text"></label>
-            <button class="boton1">Cancelar</button>
-            <button class="boton1">Agregar</button>
+            <form>
+                <h3>Articulo</h3>
+                <label>Codigo <input type="text" required></label>
+                <label>Descripcion <input type="text" required></label>
+                <label>Precio <input type="text" required></label>
+                <button type="button" class="boton1">Cancelar</button>
+                <button type="button" class="boton1">Agregar</button>
+            </form>
         </article>
         <article>
             <h3>Tabla de articulos</h3>
@@ -118,32 +122,37 @@
         </article>
         <article>
             <h3>Datos de la venta a agregar</h3>
-            <h3>Venta</h3>
-            <label>Nro: 3 Articulo
-                <select name="menu" id="menu">
-                    <option value="opcion1">A001</option>
-                    <option value="opcion2">A002</option>
-                    <option value="opcion3">A003</option>
-                </select>
-            </label>
-            <label>Influencer
-                <select name="menu2" id="menu2">
-                    <option value="opcion1">Ana perez</option>
-                    <option value="opcion2">Juan Gomez</option>
-                    <option value="opcion3">Lucia Martinez</option>
-                </select>
-            </label>
-            <label>Cantidad<input type="text" id="cantidad"> Medio</label>
-            <select name="menu3" id="menu3">
-                <option value="opcion1">1-Instagram</option>
-                <option value="opcion2">2-YouTube</option>
-                <option value="opcion3">3-X</option>
-                <option value="opcion4">4-TikTok</option>
-                <option value="opcion5">5-Facebook</option>
-                <option value="opcion6">6-Otras</option>
-            </select>
-            <button class="boton1">Cancelar</button>
-            <button class="boton1">Agregar</button>
+            <form>
+                <h3>Venta</h3>
+                <label>Nro: <input type="text" id="nro" value="3" readonly></label>
+                <label>Articulo
+                    <select name="menu" id="menu">
+                        <option value="opcion1">A001</option>
+                        <option value="opcion2">A002</option>
+                        <option value="opcion3">A003</option>
+                    </select>
+                </label>
+                <label>Influencer
+                    <select name="menu2" id="menu2">
+                        <option value="opcion1">Ana perez</option>
+                        <option value="opcion2">Juan Gomez</option>
+                        <option value="opcion3">Lucia Martinez</option>
+                    </select>
+                </label>
+                <label>Cantidad <input type="text" id="cantidad" required></label>
+                <label>Medio
+                    <select name="menu3" id="menu3">
+                        <option value="opcion1">1-Instagram</option>
+                        <option value="opcion2">2-YouTube</option>
+                        <option value="opcion3">3-X</option>
+                        <option value="opcion4">4-TikTok</option>
+                        <option value="opcion5">5-Facebook</option>
+                        <option value="opcion6">6-Otras</option>
+                    </select>
+                </label>
+                <button type="button" class="boton1">Cancelar</button>
+                <button type="button" class="boton1">Agregar</button>
+            </form>
         </article>
         <article>
             <h3>Tabla de ventas (ordenada por numero de venta)</h3>
@@ -176,6 +185,7 @@
         </article>
         <article>
             <h3>Grafico de burbujas</h3>
+            <canvas id="graficoBurbujas" width="600" height="400"></canvas>
         </article>
     </section>
 
