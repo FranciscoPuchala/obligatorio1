@@ -16,19 +16,23 @@
         <h2>Manejo de influencers</h2>
         <article>
             <h3>Alta de influencer</h3>
-            <button class="boton1">Agregar influencer</button>
+            <button class="boton1" id="agregarInfluencer">Agregar influencer</button>
         </article>
-        <article>
-            <h3>Datos del influencer a agregar</h3>
-            <form>
-                <h3>Influencer</h3>
-                <label>Nombre<input type="text" required></label>
-                <label>Mail<input type="text" required></label>
-                <label>% Comisión<input type="text" required></label>
-                <button type="button" class="boton1">Cancelar</button>
-                <button type="button" class="boton1">Agregar</button>
-            </form>
-        </article>
+            <dialog id="dialogInfluencer">
+                <article>
+                    <h3>Datos del influencer a agregar</h3>
+                    <form>
+                    <h3>Influencer</h3>
+                        <label>Nombre<input type="text" id="nombre"required></label>
+                        <label>Mail<input type="text" id="email" required></label>
+                        <label>% Comisión<input type="text" id="comisión" required></label>
+                        <button type="button" class="boton1" id="botonCancelar">Cancelar</button>
+                        <button type="button" class="boton1" id="botonAgregar">Agregar</button>
+                    </form>
+                </article>
+            </dialog>
+
+                
         <article>
             <h3>Tabla de influencers</h3>
             <table>
@@ -40,30 +44,6 @@
                     <th>Etiquetas</th>
                     <th>Detalle</th>
                 </tr>
-                <tr>
-                    <td>Ana Perez</td>
-                    <td>ana.perez@gmail.com</td>
-                    <td>20%</td>
-                    <td>$ 600</td>
-                    <td>🔥🟢</td>
-                    <td><button class="boton1">Ventas</button></td>
-                </tr>
-                <tr>
-                    <td>Juan Gomez</td>
-                    <td>juan.gomez@gmail.com</td>
-                    <td>10%</td>
-                    <td>$ 30</td>
-                    <td></td>
-                    <td><button class="boton1">Ventas</button></td>
-                </tr>
-                <tr>
-                    <td>Lucia Martinez</td>
-                    <td>lucia.martinez@gmail.com</td>
-                    <td>95%</td>
-                    <td>$ 0</td>
-                    <td>🧊</td>
-                    <td><button class="boton1">Ventas</button></td>
-                </tr>
             </table>
             <p>Información: 🔥 Top comisión (cobra más $) 🧊 Cero ventas 🟢 venta más cara (mayor monto en una sola venta)</p>
         </article>
@@ -73,19 +53,22 @@
         <h2>Manejo de Articulos</h2>
         <article>
             <h3>Alta de Artículo</h3>
-            <button class="boton1">Agregar artículo</button>
+            <button class="boton1" id="agregarArticulo">Agregar artículo</button>
         </article>
-        <article>
-            <h3>Datos del artículo a agregar</h3>
-            <form>
-                <h3>Artículo</h3>
-                <label>Código <input type="text" required></label>
-                <label>Descripción <input type="text" required></label>
-                <label>Precio <input type="text" required></label>
-                <button type="button" class="boton1">Cancelar</button>
-                <button type="button" class="boton1">Agregar</button>
-            </form>
-        </article>
+            <dialog id="dialogArticulo">
+            <article>
+                <h3>Datos del artículo a agregar</h3>
+                <form>
+                    <h3>Artículo</h3>
+                    <label>Código <input type="text" required></label>
+                    <label>Descripción <input type="text" required></label>
+                    <label>Precio <input type="text" required></label>
+                    <button type="button" class="boton1" id="botonCancelarArticulo">Cancelar</button>
+                    <button type="button" class="boton1">Agregar</button>
+                </form>
+            </article>
+            </dialog>
+            
         <article>
             <h3>Tabla de artículos</h3>
             <table>
@@ -93,21 +76,6 @@
                     <th><button class="boton1">Código ⬆︎⬇︎</button></th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                </tr>
-                <tr>
-                    <td>A001⭐</td>
-                    <td>Remera de algodón básica</td>
-                    <td>$1000</td>
-                </tr>
-                <tr>
-                    <td>A002</td>
-                    <td>Zapatillas deportivas</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <td>A003</td>
-                    <td>Gorra ajustable</td>
-                    <td>$500</td>
                 </tr>
             </table>
             <p>Información: ⭐ Artículo más vendido (mayor cantidad de unidades vendidas)</p>
@@ -118,41 +86,39 @@
         <h2>Ventas</h2>
         <article>
             <h3>Alta de ventas</h3>
-            <button class="boton1">Agregar venta</button>
+            <button class="boton1" id="agregarventas">Agregar venta</button>
         </article>
-        <article>
-            <h3>Datos de la venta a agregar</h3>
-            <form>
-                <h3>Venta</h3>
-                <label>Nro: <input type="text" id="nro" value="3" readonly></label>
-                <label>Articulo
-                    <select name="menu" id="menu">
-                        <option value="opcion1">A001</option>
-                        <option value="opcion2">A002</option>
-                        <option value="opcion3">A003</option>
-                    </select>
-                </label>
-                <label>Influencer
-                    <select name="menu2" id="menu2">
-                        <option value="opcion1">Ana perez</option>
-                        <option value="opcion2">Juan Gomez</option>
-                        <option value="opcion3">Lucia Martinez</option>
-                    </select>
-                </label>
-                <label>Cantidad <input type="text" id="cantidad" required></label>
-                <label>Medio
-                    <select name="menu3" id="menu3">
-                        <option value="opcion1">1-Instagram</option>
-                        <option value="opcion2">2-YouTube</option>
-                        <option value="opcion3">3-X</option>
-                        <option value="opcion4">4-TikTok</option>
-                        <option value="opcion5">5-Facebook</option>
-                        <option value="opcion6">6-Otras</option>
-                    </select>
-                </label>
-                <button type="button" class="boton1">Cancelar</button>
-                <button type="button" class="boton1">Agregar</button>
-            </form>
+        <dialog id="dialogventas">
+            <article>
+                <h3>Datos de la venta a agregar</h3>
+                <form>
+                    <h3>Venta</h3>
+                    <label>Nro: <input type="text" id="nro" value="3" readonly></label>
+                    <label>Articulo
+                        <select name="menu" id="menu">
+                        </select>
+                    </label>
+                    <label>Influencer
+                        <select name="menu2" id="menu2">
+                        </select>
+                    </label>
+                    <label>Cantidad <input type="text" id="cantidad" required></label>
+                    <label>Medio
+                        <select name="menu3" id="menu3">
+                            <option value="opcion1">1-Instagram</option>
+                            <option value="opcion2">2-YouTube</option>
+                            <option value="opcion3">3-X</option>
+                            <option value="opcion4">4-TikTok</option>
+                            <option value="opcion5">5-Facebook</option>
+                            <option value="opcion6">6-Otras</option>
+                        </select>
+                    </label>
+                    <button type="button" class="boton1" id="cancelarventa">Cancelar</button>
+                    <button type="button" class="boton1">Agregar</button>
+                </form>
+            </article>
+        </dialog>
+       
         </article>
         <article>
             <h3>Tabla de ventas (ordenada por número de venta)</h3>
@@ -166,19 +132,19 @@
                     <th>Acción</th>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>A001</td>
-                    <td>Ana Perez</td>
-                    <td>3</td>
-                    <td>1 - Instagram</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><button class="boton1">❌</button></td>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>A002</td>
-                    <td>Juan Gomez</td>
-                    <td>1</td>
-                    <td>2 - Youtube</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><button class="boton1">❌</button></td>
                 </tr>
             </table>
@@ -193,4 +159,7 @@
     
     </footer>
 </body>
+    <script src="js/clases.js"></script>
+    <script src="js/funciones.js"></script>
+
 </html>
