@@ -25,7 +25,7 @@
                     <h3>Influencer</h3>
                         <label>Nombre<input type="text" id="nombre"required></label>
                         <label>Mail<input type="text" id="email" required></label>
-                        <label>% Comisión<input type="text" id="comisión" required></label>
+                        <label>% Comisión<input type="text" id="comision" required></label>
                         <button type="button" class="boton1" id="botonCancelar">Cancelar</button>
                         <button type="button" class="boton1" id="botonAgregar">Agregar</button>
                     </form>
@@ -36,14 +36,18 @@
         <article>
             <h3>Tabla de influencers</h3>
             <table>
-                <tr>
-                    <th><button class="boton1">Nombre⬆︎⬇︎</button></th>
-                    <th>Email</th>
-                    <th>% Comisión</th>
-                    <th>Total a cobrar</th>
-                    <th>Etiquetas</th>
-                    <th>Detalle</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th><button class="boton1">Nombre⬆︎⬇︎</button></th>
+                        <th>Email</th>
+                        <th>% Comisión</th>
+                        <th>Total a cobrar</th>
+                        <th>Etiquetas</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyInfluencers">
+                </tbody>
             </table>
             <p>Información: 🔥 Top comisión (cobra más $) 🧊 Cero ventas 🟢 venta más cara (mayor monto en una sola venta)</p>
         </article>
