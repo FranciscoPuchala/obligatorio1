@@ -63,12 +63,12 @@
             <article>
                 <h3>Datos del artículo a agregar</h3>
                 <form>
-                    <h3>Artículo</h3>
-                    <label>Código <input type="text" required></label>
-                    <label>Descripción <input type="text" required></label>
-                    <label>Precio <input type="text" required></label>
+                    <label>Código <input type="text" id="codigo" required></label>
+                    <label>Descripción <input type="text" id="descripción" required></label>
+                    <label>Precio <input type="text" id="precio" required></label>
                     <button type="button" class="boton1" id="botonCancelarArticulo">Cancelar</button>
-                    <button type="button" class="boton1">Agregar</button>
+                    <button type="button" class="boton1" id="botonAgregarArticulo">Agregar</button>
+                    <h3>Artículo</h3>           
                 </form>
             </article>
             </dialog>
@@ -76,11 +76,17 @@
         <article>
             <h3>Tabla de artículos</h3>
             <table>
-                <tr>
+                <thead>
+                    <tr>
                     <th><button class="boton1">Código ⬆︎⬇︎</button></th>
                     <th>Descripción</th>
                     <th>Precio</th>
-                </tr>
+                    </tr>
+                </thead>
+                <tbody id="tbodyArticulos">
+
+                </tbody>
+                
             </table>
             <p>Información: ⭐ Artículo más vendido (mayor cantidad de unidades vendidas)</p>
         </article>
@@ -118,7 +124,7 @@
                         </select>
                     </label>
                     <button type="button" class="boton1" id="cancelarventa">Cancelar</button>
-                    <button type="button" class="boton1">Agregar</button>
+                    <button type="button" class="boton1" id="botonAgregarVenta">Agregar</button>
                 </form>
             </article>
         </dialog>
@@ -127,30 +133,18 @@
         <article>
             <h3>Tabla de ventas (ordenada por número de venta)</h3>
             <table>
-                <tr>
-                    <th>Nro Venta</th>
-                    <th>Código de Artículo</th>
-                    <th>Nombre de Influencer</th>
-                    <th>Cantidad</th>
-                    <th>Medio</th>
-                    <th>Acción</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="boton1">❌</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="boton1">❌</button></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Nro Venta</th>
+                        <th>Código de Artículo</th>
+                        <th>Nombre de Influencer</th>
+                        <th>Cantidad</th>
+                        <th>Medio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyVentas">
+                </tbody>
             </table>
         </article>
         <article>
