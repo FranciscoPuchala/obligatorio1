@@ -8,7 +8,7 @@ document.getElementById("cancelarventa").addEventListener("click", cancelarventa
 document.getElementById("botonAgregar").addEventListener("click",agregarDatosInfluencer)
 document.getElementById("botonAgregarArticulo").addEventListener("click",agregarDatosArticulo)
 document.getElementById("botonAgregarVenta").addEventListener("click",agregarDatosVenta)
-
+document.getElementById("eliminar").addEventListener("click", eleminarVenta)
 function agregarInfluencer(){
     document.getElementById("dialogInfluencer").showModal()
 }
@@ -26,12 +26,36 @@ function agregarArticulo(){
     
 }
 
-function agregarventa(){
-    document.getElementById("dialogventas").showModal()
+function eleminarVenta(){
+    
 }
 
+function agregarventa(){
+    document.getElementById("dialogventas").showModal()
+    let menuArticulo = document.getElementById("menu")
+    let menuInfluencer = document.getElementById("menu2")
+    
+    menuInfluencer.innerHTML = ""
+    menuArticulo.innerHTML = ""
+
+    for(inf of sistema.influencers){
+        let opcion = document.createElement("option")
+        opcion.value = inf.nombre // guarda la info pero no lo muestra
+        opcion.text = inf.nombre // muestra la info en texto
+        menuInfluencer.appendChild(opcion)
+    }
+
+    for(inf of sistema.articulos){
+        let opcion = document.createElement("option")
+        opcion.value = inf.codigo // guarda la info pero no lo muestra
+        opcion.text = inf.codigo // muestra la info en texto
+        menuArticulo.appendChild(opcion)
+    }
+}
+
+
 function cancelarventa(){
-    document.getElementById("dialogventas").close()
+    document.getElementById("dialogventas").close() 
 }
 
 function renderizarTabla(){
@@ -53,7 +77,20 @@ function agregarDatosInfluencer(){
     let nombre = document.getElementById("nombre").value
     let email = document.getElementById("email").value
     let comision = document.getElementById("comision").value
-    
+
+    if(nombre == "" || email == "" || comision == ""){ //para que rellene todo
+        alert("Debe completar todos los datos")
+        return
+    }
+
+    for(inf of sistema.influencers){    // para unico mail
+        if(inf.email == email){
+            alert("Este mail ya esta ingresado")
+            return
+        }
+        
+    }
+
     let nuevoInfluencer = new Influencer(nombre,email,comision)
     sistema.influencers.push(nuevoInfluencer)
     renderizarTabla()
@@ -77,6 +114,19 @@ function agregarDatosArticulo(){
     let descripcion = document.getElementById("descripción").value
     let precio = document.getElementById("precio").value
 
+    if(codigo == "" || descripcion == "" || precio == ""){
+        alert("Debe completar todos los datos")
+        return
+    }
+
+    for(inf of sistema.articulos){    // para unico codigo
+        if(inf.codigo == codigo){
+            alert("Este codigo ya esta ingresado")
+            return
+        }
+        
+    }
+
     let nuevoArticulo = new Articulo(codigo,descripcion,precio)
     sistema.articulos.push(nuevoArticulo)
     renderizarTablaArticulo()
@@ -92,7 +142,7 @@ function renderizarTablaVenta(){
                          "<td>" + ven.influencer + "</td>" +
                          "<td>" + ven.cantidad + "</td>" +
                          "<td>" + ven.medio + "</td>" +
-                         "<td><button class='boton1'>❌</button></td>"
+                         "<td><button class='boton1' id='eliminar'>❌</button></td>"
         tbody.appendChild(fila)
     }
 }
@@ -102,6 +152,16 @@ function agregarDatosVenta(){
     let influencer = document.getElementById("menu2").value
     let cantidad = document.getElementById("cantidad").value
     let medio = document.getElementById("menu3").value
+
+    if(sistema.articulos.length == 0 || sistema.influencers.length == 0){
+        alert("Debe haber al menos un artículo y un influencer registrado")
+        return
+    }
+
+    if(cantidad == ""){
+        alert("Debe completar todos los datos")
+        return
+    }
 
     let nuevaVenta = new Venta(sistema.contadorVentas, articulo, influencer, cantidad, medio)
     sistema.ventas.push(nuevaVenta)
