@@ -8,7 +8,6 @@ document.getElementById("cancelarventa").addEventListener("click", cancelarventa
 document.getElementById("botonAgregar").addEventListener("click",agregarDatosInfluencer)
 document.getElementById("botonAgregarArticulo").addEventListener("click",agregarDatosArticulo)
 document.getElementById("botonAgregarVenta").addEventListener("click",agregarDatosVenta)
-document.getElementById("eliminar").addEventListener("click", eleminarVenta)
 function agregarInfluencer(){
     document.getElementById("dialogInfluencer").showModal()
 }
@@ -26,8 +25,9 @@ function agregarArticulo(){
     
 }
 
-function eleminarVenta(){
-    
+function eleminarVenta(indice){
+    sistema.ventas.splice(indice, 1)
+    renderizarTablaVenta()
 }
 
 function agregarventa(){
@@ -137,14 +137,15 @@ function agregarDatosArticulo(){
 function renderizarTablaVenta(){
     let tbody = document.getElementById("tbodyVentas")
     tbody.innerHTML = ""
-    for(let ven of sistema.ventas){
+    for(let i = 0; i < sistema.ventas.length; i++){
+        let ven = sistema.ventas[i]
         let fila = document.createElement("tr")
         fila.innerHTML = "<td>" + ven.numero + "</td>" +
                          "<td>" + ven.articulo + "</td>" +
                          "<td>" + ven.influencer + "</td>" +
                          "<td>" + ven.cantidad + "</td>" +
                          "<td>" + ven.medio + "</td>" +
-                         "<td><button class='boton1' id='eliminar'>❌</button></td>"
+                         "<td><button class='boton1' onclick='eleminarVenta(" + i + ")'>❌</button></td>"
         tbody.appendChild(fila)
     }
 }
