@@ -94,6 +94,7 @@ function agregarDatosInfluencer(){
     let nuevoInfluencer = new Influencer(nombre,email,comision)
     sistema.influencers.push(nuevoInfluencer)
     renderizarTabla()
+    document.getElementById("dialogInfluencer").close()
 }
 
 function renderizarTablaArticulo(){
@@ -130,6 +131,7 @@ function agregarDatosArticulo(){
     let nuevoArticulo = new Articulo(codigo,descripcion,precio)
     sistema.articulos.push(nuevoArticulo)
     renderizarTablaArticulo()
+    document.getElementById("dialogArticulo").close()
 }
 
 function renderizarTablaVenta(){
