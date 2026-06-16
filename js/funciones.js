@@ -83,7 +83,7 @@ function agregarDatosInfluencer(){
         return
     }
 
-    for(inf of sistema.influencers){    // para unico mail
+    for( inf of sistema.influencers){    // para unico mail
         if(inf.email == email){
             alert("Este mail ya esta ingresado")
             return
