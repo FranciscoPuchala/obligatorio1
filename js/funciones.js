@@ -25,8 +25,8 @@ function agregarArticulo(){
     
 }
 
-function eleminarVenta(indice){
-    sistema.ventas.splice(indice, 1)
+function eliminarVenta(i){
+    sistema.ventas.splice(i, 1)
     renderizarTablaVenta()
     renderizarTabla()
 }
@@ -110,8 +110,8 @@ function obtenerEtiquetas(influencer){
     return etiquetas
 }
 
-function mostrarDetalleInfluencer(indice){
-    let influencer = sistema.influencers[indice]
+function mostrarDetalleInfluencer(i){
+    let influencer = sistema.influencers[i]
     let mensaje = "Ventas:\n"
     for(let i = 0; i < sistema.ventas.length; i++){
         if(sistema.ventas[i].influencer === influencer.nombre){
@@ -246,7 +246,7 @@ function renderizarTablaVenta(){
                          "<td>" + ven.influencer + "</td>" +
                          "<td>" + ven.cantidad + "</td>" +
                          "<td>" + ven.medio + "</td>" +
-                         "<td><button class='boton1' onclick='eleminarVenta(" + i + ")'>❌</button></td>"
+                         "<td><button class='boton1' onclick='eliminarVenta(" + i + ")'>❌</button></td>"
         tbody.appendChild(fila)
     }
 }
