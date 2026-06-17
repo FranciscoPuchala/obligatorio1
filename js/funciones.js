@@ -8,6 +8,11 @@ document.getElementById("cancelarventa").addEventListener("click", cancelarventa
 document.getElementById("botonAgregar").addEventListener("click",agregarDatosInfluencer)
 document.getElementById("botonAgregarArticulo").addEventListener("click",agregarDatosArticulo)
 document.getElementById("botonAgregarVenta").addEventListener("click",agregarDatosVenta)
+document.getElementById("ordenarNombre").addEventListener("click",ordenarInfluencers)
+
+let ordenAscendente = true
+
+
 function agregarInfluencer(){
     document.getElementById("dialogInfluencer").showModal()
 }
@@ -275,4 +280,24 @@ function agregarDatosVenta(){
     document.getElementById("dialogventas").close()
 }
 
+function ordenarInfluencers(){
+    for(let i = 0; i < sistema.influencers.length - 1; i++){
+        for(let j = 0; j < sistema.influencers.length - 1 - i; j++){
+            let intercambiar = false
+            if(ordenAscendente && sistema.influencers[j].nombre > sistema.influencers[j+1].nombre){
+                intercambiar = true
+            }
+            if(!ordenAscendente && sistema.influencers[j].nombre < sistema.influencers[j+1].nombre){
+                intercambiar = true
+            }
+            if(intercambiar){
+                let temp = sistema.influencers[j]
+                sistema.influencers[j] = sistema.influencers[j+1]
+                sistema.influencers[j+1] = temp
+            }
+        }
+    }
+    ordenAscendente = !ordenAscendente
+    renderizarTabla()
+}
 
