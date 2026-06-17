@@ -28,6 +28,105 @@ function agregarArticulo(){
 function eleminarVenta(indice){
     sistema.ventas.splice(indice, 1)
     renderizarTablaVenta()
+    renderizarTabla()
+}
+
+function calcularTotalInfluencer(influencer){
+    let total = 0
+    for(let i = 0; i < sistema.ventas.length; i++){
+        if(sistema.ventas[i].influencer === influencer.nombre){
+            let precio = 0
+            for(let j = 0; j < sistema.articulos.length; j++){
+                if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+                    precio = Number(sistema.articulos[j].precio)
+                }
+            }
+            let monto = precio * Number(sistema.ventas[i].cantidad)
+            total += monto * (Number(influencer.comision) / 100)
+        }
+    }
+    return total
+}
+
+function obtenerEtiquetas(influencer){
+    // contar ventas del influencer
+    let cantVentas = 0
+    for(let i = 0; i < sistema.ventas.length; i++){
+        if(sistema.ventas[i].influencer === influencer.nombre){
+            cantVentas++
+        }
+    }
+    if(cantVentas === 0){
+        return "🧊"
+    }
+
+    let etiquetas = ""
+
+    // 🔥 el que mas cobra en comisiones
+    let miTotal = calcularTotalInfluencer(influencer)
+    let maxTotal = 0
+    for(let i = 0; i < sistema.influencers.length; i++){
+        let t = calcularTotalInfluencer(sistema.influencers[i])
+        if(t > maxTotal){
+            maxTotal = t
+        }
+    }
+    if(miTotal === maxTotal && maxTotal > 0){
+        etiquetas += "🔥"
+    }
+
+    // 🟢 el que tuvo la venta mas cara (precio * cantidad en una sola venta)
+    let maxMontoGlobal = 0
+    for(let i = 0; i < sistema.ventas.length; i++){
+        let precio = 0
+        for(let j = 0; j < sistema.articulos.length; j++){
+            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+                precio = Number(sistema.articulos[j].precio)
+            }
+        }
+        let monto = precio * Number(sistema.ventas[i].cantidad)
+        if(monto > maxMontoGlobal){
+            maxMontoGlobal = monto
+        }
+    }
+
+    let yaAgrego = false
+    for(let i = 0; i < sistema.ventas.length; i++){
+        if(sistema.ventas[i].influencer === influencer.nombre && !yaAgrego){
+            let precio = 0
+            for(let j = 0; j < sistema.articulos.length; j++){
+                if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+                    precio = Number(sistema.articulos[j].precio)
+                }
+            }
+            let monto = precio * Number(sistema.ventas[i].cantidad)
+            if(monto === maxMontoGlobal){
+                etiquetas += "🟢"
+                yaAgrego = true
+            }
+        }
+    }
+
+    return etiquetas
+}
+
+function mostrarDetalleInfluencer(indice){
+    let influencer = sistema.influencers[indice]
+    let mensaje = "Ventas:\n"
+    for(let i = 0; i < sistema.ventas.length; i++){
+        if(sistema.ventas[i].influencer === influencer.nombre){
+            let precio = 0
+            for(let j = 0; j < sistema.articulos.length; j++){
+                if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+                    precio = Number(sistema.articulos[j].precio)
+                }
+            }
+            let total = precio * Number(sistema.ventas[i].cantidad)
+            let comision = total * (Number(influencer.comision) / 100)
+            mensaje += "Nro " + sistema.ventas[i].numero + " → " + sistema.ventas[i].cantidad + "→" + sistema.ventas[i].articulo + "→$" + precio + "c/u Total $" + total + "→ Comisión: $" + comision + "\n"
+        }
+    }
+    alert(mensaje)
 }
 
 function agregarventa(){
@@ -60,18 +159,20 @@ function cancelarventa(){
 
 function renderizarTabla(){
     let tbody = document.getElementById("tbodyInfluencers")
-    tbody.innerHTML = "" //borra la info que hay
-    for(let inf of sistema.influencers){
+    tbody.innerHTML = ""
+    for(let i = 0; i < sistema.influencers.length; i++){
+        let inf = sistema.influencers[i]
+        let total = calcularTotalInfluencer(inf)
+        let etiquetas = obtenerEtiquetas(inf)
         let fila = document.createElement("tr")
         fila.innerHTML = "<td>" + inf.nombre + "</td>" +
                          "<td>" + inf.email + "</td>" +
-                         "<td>" + inf.comision + "</td>" +
-                         "<td></td>" +
-                         "<td></td>" +
-                         "<td><button class='boton1'>Ventas</td>"
+                         "<td>" + inf.comision + "%</td>" +
+                         "<td>$" + total + "</td>" +
+                         "<td>" + etiquetas + "</td>" +
+                         "<td><button class='boton1' onclick='mostrarDetalleInfluencer(" + i + ")'>Ventas</button></td>"
         tbody.appendChild(fila)
     }
-
 }
 function agregarDatosInfluencer(){
     let nombre = document.getElementById("nombre").value
@@ -170,6 +271,7 @@ function agregarDatosVenta(){
     sistema.ventas.push(nuevaVenta)
     sistema.contadorVentas++
     renderizarTablaVenta()
+    renderizarTabla()
     document.getElementById("dialogventas").close()
 }
 
