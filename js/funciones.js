@@ -281,21 +281,18 @@ function agregarDatosVenta(){
 }
 
 function ordenarInfluencers(){
-    for(let i = 0; i < sistema.influencers.length - 1; i++){
-        for(let j = 0; j < sistema.influencers.length - 1 - i; j++){
-            let intercambiar = false
-            if(ordenAscendente && sistema.influencers[j].nombre > sistema.influencers[j+1].nombre){
-                intercambiar = true
-            }
-            if(!ordenAscendente && sistema.influencers[j].nombre < sistema.influencers[j+1].nombre){
-                intercambiar = true
-            }
-            if(intercambiar){
-                let temp = sistema.influencers[j]
-                sistema.influencers[j] = sistema.influencers[j+1]
-                sistema.influencers[j+1] = temp
-            }
-        }
+    if(ordenAscendente){
+        sistema.influencers.sort(function(a, b){
+            if(a.nombre > b.nombre) return 1
+            if(a.nombre < b.nombre) return -1
+            return 0
+        })
+    } else {
+        sistema.influencers.sort(function(a, b){
+            if(a.nombre < b.nombre) return 1
+            if(a.nombre > b.nombre) return -1
+            return 0
+        })
     }
     ordenAscendente = !ordenAscendente
     renderizarTabla()
