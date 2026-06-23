@@ -25,7 +25,7 @@
                     <h3>Influencer</h3>
                         <label>Nombre<input type="text" id="nombre"required></label>
                         <label>Mail<input type="text" id="email" required></label>
-                        <label>% Comisión<input type="text" id="comision" required></label>
+                        <label>% Comisión<input type="number" id="comision" min="0" max="100" required></label>
                         <button type="button" class="boton1" id="botonCancelar">Cancelar</button>
                         <button type="button" class="boton1" id="botonAgregar">Agregar</button>
                     </form>
@@ -65,7 +65,7 @@
                 <form>
                     <label>Código <input type="text" id="codigo" required></label>
                     <label>Descripción <input type="text" id="descripción" required></label>
-                    <label>Precio <input type="text" id="precio" required></label>
+                    <label>Precio <input type="number" id="precio" min="0" required></label>
                     <button type="button" class="boton1" id="botonCancelarArticulo">Cancelar</button>
                     <button type="button" class="boton1" id="botonAgregarArticulo">Agregar</button>
                     <h3>Artículo</h3>           
@@ -78,7 +78,7 @@
             <table>
                 <thead>
                     <tr>
-                    <th><button class="boton1">Código ⬆︎⬇︎</button></th>
+                    <th><button class="boton1" id="ordenarCodigo">Código ⬆︎⬇︎</button></th>
                     <th>Descripción</th>
                     <th>Precio</th>
                     </tr>
@@ -112,7 +112,7 @@
                         <select name="menu2" id="menu2">
                         </select>
                     </label>
-                    <label>Cantidad <input type="text" id="cantidad" required></label>
+                    <label>Cantidad <input type="number" id="cantidad" min="1" required></label>
                     <label>Medio
                         <select name="menu3" id="menu3">
                             <option value="Instagram">1-Instagram</option>
