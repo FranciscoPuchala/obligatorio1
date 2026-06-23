@@ -1,3 +1,4 @@
+// Autores: Juan Andrez Lagorio y Francisco Puchala
 let sistema = new Sistema()
 document.getElementById("agregarInfluencer").addEventListener("click",agregarInfluencer)
 document.getElementById("botonCancelar").addEventListener("click",cancelarInfluencer)
@@ -52,7 +53,7 @@ function renderizarGraficoBurbujas(){
     for(let i = 0; i < sistema.ventas.length; i++){
         let precio = 0
         for(let j = 0; j < sistema.articulos.length; j++){
-            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){ // SI VENDIO EL ARTICULO
                 precio = Number(sistema.articulos[j].precio)
             }
         }
