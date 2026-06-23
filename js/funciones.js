@@ -8,11 +8,6 @@ document.getElementById("cancelarventa").addEventListener("click", cancelarventa
 document.getElementById("botonAgregar").addEventListener("click",agregarDatosInfluencer)
 document.getElementById("botonAgregarArticulo").addEventListener("click",agregarDatosArticulo)
 document.getElementById("botonAgregarVenta").addEventListener("click",agregarDatosVenta)
-document.getElementById("ordenarNombre").addEventListener("click",ordenarInfluencers)
-
-let ordenAscendente = true
-
-
 function agregarInfluencer(){
     document.getElementById("dialogInfluencer").showModal()
 }
@@ -30,8 +25,8 @@ function agregarArticulo(){
     
 }
 
-function eliminarVenta(i){
-    sistema.ventas.splice(i, 1)
+function elminarVenta(indice){
+    sistema.ventas.splice(indice, 1)
     renderizarTablaVenta()
     renderizarTabla()
 }
@@ -115,8 +110,8 @@ function obtenerEtiquetas(influencer){
     return etiquetas
 }
 
-function mostrarDetalleInfluencer(i){
-    let influencer = sistema.influencers[i]
+function mostrarDetalleInfluencer(indice){
+    let influencer = sistema.influencers[indice]
     let mensaje = "Ventas:\n"
     for(let i = 0; i < sistema.ventas.length; i++){
         if(sistema.ventas[i].influencer === influencer.nombre){
@@ -251,7 +246,7 @@ function renderizarTablaVenta(){
                          "<td>" + ven.influencer + "</td>" +
                          "<td>" + ven.cantidad + "</td>" +
                          "<td>" + ven.medio + "</td>" +
-                         "<td><button class='boton1' onclick='eliminarVenta(" + i + ")'>❌</button></td>"
+                         "<td><button class='boton1' onclick='eleminarVenta(" + i + ")'>❌</button></td>"
         tbody.appendChild(fila)
     }
 }
@@ -280,21 +275,4 @@ function agregarDatosVenta(){
     document.getElementById("dialogventas").close()
 }
 
-function ordenarInfluencers(){
-    if(ordenAscendente){
-        sistema.influencers.sort(function(a, b){
-            if(a.nombre > b.nombre) return 1
-            if(a.nombre < b.nombre) return -1
-            return 0
-        })
-    } else {
-        sistema.influencers.sort(function(a, b){
-            if(a.nombre < b.nombre) return 1
-            if(a.nombre > b.nombre) return -1
-            return 0
-        })
-    }
-    ordenAscendente = !ordenAscendente
-    renderizarTabla()
-}
 
