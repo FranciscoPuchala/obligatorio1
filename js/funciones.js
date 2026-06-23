@@ -34,6 +34,88 @@ function eliminarVenta(i){
     sistema.ventas.splice(i, 1)
     renderizarTablaVenta()
     renderizarTabla()
+    renderizarGraficoBurbujas()
+}
+
+function renderizarGraficoBurbujas(){
+    let contenedor = document.getElementById("graficoBurbujas")
+    contenedor.innerHTML = ""
+
+    let nombres  = ["Instagram", "YouTube", "X", "Tiktok", "Facebook", "Otras"]
+    let etiquetas = ["1 - Instagram", "2 - YouTube", "3 - X", "4 - TikTok", "5 - Facebook", "6 - Otras"]
+    let colores  = ["#e74c3c", "#3498db", "#27ae60", "#9b59b6", "#f39c12", "#1abc9c"]
+    let totales  = [0, 0, 0, 0, 0, 0]
+
+    // sumar el monto vendido por cada medio
+    for(let i = 0; i < sistema.ventas.length; i++){
+        let precio = 0
+        for(let j = 0; j < sistema.articulos.length; j++){
+            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+                precio = Number(sistema.articulos[j].precio)
+            }
+        }
+        let monto = precio * Number(sistema.ventas[i].cantidad)
+
+        if(sistema.ventas[i].medio === "Instagram") totales[0] += monto
+        if(sistema.ventas[i].medio === "YouTube")   totales[1] += monto
+        if(sistema.ventas[i].medio === "X")         totales[2] += monto
+        if(sistema.ventas[i].medio === "Tiktok")    totales[3] += monto
+        if(sistema.ventas[i].medio === "Facebook")  totales[4] += monto
+        if(sistema.ventas[i].medio === "Otras"    totales[5] += monto
+    }
+
+    // encontrar maximo y minimo
+    let maxTotal = 0
+    let minTotal = totales[0]
+    for(let i = 0; i < 6; i++){
+        if(totales[i] > maxTotal) maxTotal = totales[i]
+        if(totales[i] < minTotal) minTotal = totales[i]
+    }
+
+    let maxRadio = 70
+    let minRadio = maxRadio * 0.1
+
+    // dibujar cada burbuja
+    for(let i = 0; i < 6; i++){
+        let radio = minRadio
+        if(maxTotal > 0 && maxTotal !== minTotal){
+            radio = minRadio + ((totales[i] - minTotal) / (maxTotal - minTotal)) * (maxRadio - minRadio)
+        } else if(maxTotal > 0){
+            radio = maxRadio
+        }
+
+        let diametro = radio * 2
+
+        // div que contiene burbuja + etiqueta
+        let celda = document.createElement("div")
+        celda.style.display = "inline-block"
+        celda.style.textAlign = "center"
+        celda.style.verticalAlign = "middle"
+        celda.style.width = "160px"
+
+        // circulo
+        let burbuja = document.createElement("div")
+        burbuja.style.width = diametro + "px"
+        burbuja.style.height = diametro + "px"
+        burbuja.style.borderRadius = "50%"
+        burbuja.style.backgroundColor = colores[i]
+        burbuja.style.margin = "0 auto"
+        burbuja.style.color = "white"
+        burbuja.style.fontSize = "11px"
+        burbuja.style.lineHeight = diametro + "px"
+        burbuja.style.textAlign = "center"
+        burbuja.innerHTML = "$" + totales[i]
+
+        // nombre del medio debajo
+        let label = document.createElement("p")
+        label.style.fontSize = "12px"
+        label.style.margin = "5px 0 0 0"
+        label.innerHTML = etiquetas[i]
+
+        celda.appendChild(burbuja)
+        celda.appendChild(label)
+        contenedor.appendChild(celda)
+    }
 }
 
 function calcularTotalInfluencer(influencer){
@@ -277,6 +359,7 @@ function agregarDatosVenta(){
     sistema.contadorVentas++
     renderizarTablaVenta()
     renderizarTabla()
+    renderizarGraficoBurbujas()
     document.getElementById("dialogventas").close()
 }
 
