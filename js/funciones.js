@@ -1,5 +1,7 @@
 // Autores: Juan Andrez Lagorio y Francisco Puchala
 
+// Le pedimos a la IA que organize las funciones segun la estructura del html y sin pedirle agrego comentarioscomo titulos, etc.
+
 // Se crea el objeto principal que guarda todos los datos del sistema
 let sistema = new Sistema()
 
@@ -429,7 +431,7 @@ function renderizarGraficoBurbujas(){
         let precio = 0
         // Se busca el precio del articulo de esa venta
         for(let j = 0; j < sistema.articulos.length; j++){
-            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){
+            if(sistema.articulos[j].codigo === sistema.ventas[i].articulo){ //se vendio?
                 precio = Number(sistema.articulos[j].precio)
             }
         }
