@@ -2,7 +2,7 @@
 
 // Le pedimos a la IA que organize las funciones segun la estructura del html y sin pedirle agrego comentarioscomo titulos, etc.
 
-// Se crea el objeto principal que guarda todos los datos del sistema
+// Se crea el objeto principal que guarda todos los datos del sistema (instancia)
 let sistema = new Sistema()
 
 // Se conecta cada boton del HTML con su funcion correspondiente
